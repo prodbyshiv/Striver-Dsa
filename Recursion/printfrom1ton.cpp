@@ -12,4 +12,5 @@ void printName(int i, int n){
 
 int main(){
     printName(1,7);
+    
 }
