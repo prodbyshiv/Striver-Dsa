@@ -1,52 +1,53 @@
 #include <iostream>
 #include <vector>
-#include <climits> // for INT_MIN, INT_MAX, oh
+#include <climits>
 using namespace std;
 
-// Function to find second largest element
-int secondLargest(vector<int>& a, int n) {
-    int largest = INT_MIN, second = INT_MIN;
+int secondLargest(vector<int> arr, int n) {
+    int largest = INT_MIN;
+    int second = INT_MIN;
+
     for (int i = 0; i < n; i++) {
-        if (a[i] > largest) {
+        if (arr[i] > largest) {
             second = largest;
-            largest = a[i];
-        } else if (a[i] > second && a[i] != largest) {
-            second = a[i];
+            largest = arr[i];
+        }
+        else if (arr[i] < largest && arr[i] > second) {
+            second = arr[i];
         }
     }
     return second;
 }
 
-// Function to find second smallest element
-int secondSmallest(vector<int>& a, int n) {
-    int smallest = INT_MAX, second = INT_MAX;
+int secondSmallest(vector<int> arr, int n) {
+    int smallest = INT_MAX;
+    int second = INT_MAX;
+
     for (int i = 0; i < n; i++) {
-        if (a[i] < smallest) {
+        if (arr[i] < smallest) {
             second = smallest;
-            smallest = a[i];
-        } else if (a[i] < second && a[i] != smallest) {
-            second = a[i];
+            smallest = arr[i];
+        }
+        else if (arr[i] > smallest && arr[i] < second) {
+            second = arr[i];
         }
     }
     return second;
 }
 
-// Function to get both second largest and second smallest
-vector<int> getSecondorderElements(vector<int> a, int n) {
-    int secondlargest = secondLargest(a, n);
-    int secondsmallest = secondSmallest(a, n);
+vector<int> getSecondorderedelement(vector<int> arr, int n) {
+    int secondlargest = secondLargest(arr, n);
+    int secondsmallest = secondSmallest(arr, n);
 
     return {secondlargest, secondsmallest};
 }
 
 int main() {
-    vector<int> arr = {5, 10, 2, 8, 7};
+    vector<int> arr = {12, 12, 12, 11, 10, 32};
     int n = arr.size();
+    vector<int> ans = getSecondorderedelement(arr, n);
 
-    vector<int> ans = getSecondorderElements(arr, n);
-
-    cout << "Second Largest = " << ans[0] << endl;
-    cout << "Second Smallest = " << ans[1] << endl;
-
+    cout << "Second largest = " << ans[0] << endl;
+    cout << "Second smallest = " << ans[1] << endl;
     return 0;
 }
