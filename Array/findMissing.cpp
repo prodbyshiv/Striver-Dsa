@@ -2,19 +2,18 @@
 #include <vector>
 using namespace std;
 
-void findMissing(vector<int> arr, int n) {
-    for (int i = 0; i < n - 1; i++) {
-        // Check gap between consecutive elements
-        for (int j = arr[i] + 1; j < arr[i + 1]; j++) {
-            cout << j << " ";
-        }
-    }
-    cout << endl;
+int findMissing(vector<int> arr, int N) {
+   int sum = N*(N+1)/2; // 1+2+...+N
+   int sum1 = 0;
+   for (int i = 0; i < arr.size(); i++) {
+       sum1 += arr[i];
+   }
+   return sum - sum1;
 }
 
 int main() {
-    vector<int> arr = {1, 7};
-    int n = arr.size();
-    findMissing(arr, n);
+    vector<int> arr = {1,2,3,4,5,6,8}; // example
+    int N = 8; // total numbers should be 1..8
+    cout << "Missing number is: " << findMissing(arr, N);
     return 0;
 }
