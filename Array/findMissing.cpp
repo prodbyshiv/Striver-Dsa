@@ -12,7 +12,7 @@ int findMissing(vector<int> arr, int N) {
 }
 
 int main() {
-    vector<int> arr = {1,2,3,4,5,6,8}; // example
+    vector<int> arr = {1,2,3,4,5,6,8}; // example of
     int N = 8; // total numbers should be 1..8
     cout << "Missing number is: " << findMissing(arr, N);
     return 0;
