@@ -3,22 +3,17 @@
 using namespace std;
 
 int longestSubarray(vector<int> &nums, int k) {
-    int left = 0, sum = 0, maxlength = 0;
+    int maxlength = 0;
 
-    for (int right = 0; right < nums.size(); right++) {
-        
-        sum += nums[right]; // window expand karo
+    for (int i = 0; i < nums.size(); i++) {
+        int sum = 0;   // ✅ yaha reset
+        for (int j = i; j < nums.size(); j++) {
 
-        // agar sum bada ho gaya, window shrink karo
-        while (sum > k && left <= right) {
-            sum -= nums[left];
-            left++;
-        }
-        
+            sum = sum + nums[j];
 
-        // agar sum equal ho gaya, length check karo
-        if (sum == k) {
-            maxlength = max(maxlength, right - left + 1);
+            if (sum == k) {
+                maxlength = max(maxlength, j - i + 1);
+            }
         }
     }
     return maxlength;

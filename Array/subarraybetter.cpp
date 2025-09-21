@@ -10,6 +10,8 @@ int longestSubarray(vector<int> &nums, int k){
     {
         sum += nums[i];
 
+       
+
         if (sum==k)
         {
             maxlength = max(maxlength,i+1);
@@ -21,7 +23,7 @@ int longestSubarray(vector<int> &nums, int k){
 
         }
         
-        if (!mpp.count(sum))
+         if (!mpp.count(sum))
         {
             mpp[sum]=i; // sum ka index to yha store ho rha hai and sum.
         }
@@ -29,7 +31,7 @@ int longestSubarray(vector<int> &nums, int k){
     }
 
     
-    
+    return maxlength;
 }
 
 int main() {
