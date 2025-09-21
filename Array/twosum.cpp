@@ -5,8 +5,8 @@ using namespace std;
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
-        int low = 0;           // next position for 0
-        int mid = 0;           // current element
+        int low = 0;          
+        int mid = 0;           
         int high = nums.size() - 1;  // next position for 2
 
         while (mid <= high) {
