@@ -17,6 +17,7 @@ public:
 
         // no zero found
         if (j == -1) return;
+        
 
         // shift non-zeros forward
         for (int i = j + 1; i < n; i++) {

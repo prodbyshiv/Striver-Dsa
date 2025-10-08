@@ -1,0 +1,6 @@
+// brute force solution
+// 
+//
+//
+//
+//
