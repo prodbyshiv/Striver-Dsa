@@ -113,34 +113,59 @@
 //     return 0;
 // }
 
+//.        REMOVE ALL OCCURENCE 
+// #include <iostream>
+// using namespace std;
+
+// class Solution {
+//   public:
+//     // Function to remove all occurrences of the character from the string
+//     void removeCharacter(string &s, char c) {
+//         int j = 0;
+//         for(int i = 0; i < s.size(); i++){
+//             if(s[i]!=c){
+//                 s[j++] = s[i]; 
+//             }
+//         }
+//         s.resize(j);
+//     }
+// };
+
+// int main() {
+//     Solution sol;           // Create object of Solution class
+//     string s = "geeksforgeeks";
+//     char c = 'g';
+    
+//     cout << "Original string: " << s << endl;
+
+//     sol.removeCharacter(s, c);   // Call the function
+
+//     cout << "String after removing '" << c << "': " << s << endl;
+
+//     return 0;
+// }
+
+//                  REVERSE 
+// C++ program to reverse a string using backward traversal
 
 #include <iostream>
+#include <string>
 using namespace std;
 
-class Solution {
-  public:
-    // Function to remove all occurrences of the character from the string
-    void removeCharacter(string &s, char c) {
-        int j = 0;
-        for(int i = 0; i < s.size(); i++){
-            if(s[i]!=c){
-                s[j++] = s[i]; 
-            }
-        }
-        s.resize(j);
+string reverseString(string& s) {
+    string res;
+  
+  	// Traverse on s in backward direction
+  	// and add each charecter to a new string
+    for (int i = s.size() - 1; i >= 0; i--) {
+        res += s[i];
     }
-};
+    return res;
+}
 
 int main() {
-    Solution sol;           // Create object of Solution class
-    string s = "geeksforgeeks";
-    char c = 'g';
-    
-    cout << "Original string: " << s << endl;
-
-    sol.removeCharacter(s, c);   // Call the function
-
-    cout << "String after removing '" << c << "': " << s << endl;
-
+    string s = "abdcfe";
+    string res = reverseString(s);
+    cout << res;
     return 0;
 }
