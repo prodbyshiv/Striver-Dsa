@@ -13,7 +13,7 @@ int findMax(vector<int> &piles){
     return maxi;
 }
 
- int inttotalHours(vector<int> &piles,int h){
+ int gettotalHours(vector<int> &piles,int h){
     int totalH = 0;
     for (int i = 0; i < piles.size(); i++)
     {
@@ -26,23 +26,32 @@ int findMax(vector<int> &piles){
 int minimumSpeed(vector<int> &piles, int h){
     
 int low = 1; int high = findMax(piles);
-int mid = (low+high)/2;
-int totalH = inttotalHours(piles,mid);
+int ans = high;
 
-if (totalH <= h)
+
+while (low <= high)
 {
+    int mid = (low+high)/2;
+int totalH = gettotalHours(piles,mid);
+    if (totalH <= h)
+{   ans = mid;
     high = mid-1;
 }
 else{
     low = mid+1;
 }
+
+}
 return low;
 }
+
+
+
 
 int main() {
 vector<int> piles = {3,6,7,11};
  int h=8;
-
+cout<<minimumSpeed(piles,h);
     
     
 }
